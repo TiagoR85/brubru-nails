@@ -1,0 +1,85 @@
+---
+import { products } from '../../lib/utils';
+---
+
+<section class="products-section section-padding">
+  <div class="container-premium">
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="heading-lg text-brand-graphite mb-4">Nossas Ferramentas</h2>
+      <p class="text-body text-muted max-w-2xl mx-auto">Criadas por quem entende o mercado</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      {products.map((product) => (
+        <div class="product-card card-premium flex flex-col h-full group">
+          <div class="relative overflow-hidden rounded-2xl mb-5">
+            <div class="aspect-[4/3] bg-gradient-to-br from-brand-rose/20 via-brand-champagne/20 to-brand-rose/10 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+              <svg class="w-16 h-16 text-brand-rose/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            </div>
+            {product.badge && (
+              <span class="absolute top-3 right-3 badge">{product.badge}</span>
+            )}
+          </div>
+
+          <div class="flex flex-col flex-1">
+            <h3 class="heading-md text-brand-graphite mb-2">{product.name}</h3>
+            <p class="text-body text-muted mb-4">{product.description}</p>
+
+            {product.features && product.features.length > 0 && (
+              <ul class="space-y-2 mb-6 flex-1">
+                {product.features.map((feature) => (
+                  <li class="flex items-start gap-2 text-sm text-brand-graphite/70">
+                    <svg class="w-5 h-5 text-brand-champagne shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <a
+              href={product.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary w-full text-center mt-auto"
+            >
+              Saiba Mais
+              <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .products-section {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--white) 50%, var(--bg-primary) 100%);
+  }
+
+  .product-card {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .product-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .product-card:nth-child(1) { transition-delay: 0ms; }
+  .product-card:nth-child(2) { transition-delay: 100ms; }
+  .product-card:nth-child(3) { transition-delay: 200ms; }
+  .product-card:nth-child(4) { transition-delay: 300ms; }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+  }
+</style>

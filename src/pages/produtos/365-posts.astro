@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { products } from '../../lib/utils';
+
+const product = products.find(p => p.id === '365-posts')!;
+const relatedProducts = products.filter(p => p.id !== '365-posts');
+---
+
+<BaseLayout title={product.name} description={product.description}>
+  <section class="hero-section section-padding">
+    <div class="container-premium">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        {product.badge && (
+          <span class="badge mb-4 inline-block">{product.badge}</span>
+        )}
+        <h1 class="heading-xl text-brand-graphite mb-6">
+          {product.name}
+        </h1>
+        <p class="text-body text-muted text-lg sm:text-xl max-w-2xl mx-auto">
+          {product.description}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-detail-section section-padding">
+    <div class="container-premium">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="relative overflow-hidden rounded-3xl">
+          <div class="aspect-[4/3] bg-gradient-to-br from-brand-champagne/20 via-brand-rose/20 to-brand-champagne/10 flex items-center justify-center">
+            <svg class="w-32 h-32 text-brand-champagne/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            </svg>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="heading-lg text-brand-graphite mb-6">Sobre o Produto</h2>
+          <p class="text-body text-muted mb-8">
+            {product.description}
+          </p>
+
+          {product.features && product.features.length > 0 && (
+            <div class="mb-8">
+              <h3 class="heading-sm text-brand-graphite mb-4">O que você vai receber</h3>
+              <ul class="space-y-3">
+                {product.features.map((feature) => (
+                  <li class="flex items-start gap-3 text-brand-graphite/70">
+                    <svg class="w-5 h-5 text-brand-champagne shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <a
+            href={product.externalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            Adquirir Agora
+            <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-section section-padding">
+    <div class="container-premium">
+      <div class="text-center mb-12">
+        <h2 class="heading-lg text-brand-graphite mb-4">Outros Produtos</h2>
+        <p class="text-body text-muted">Confira nossas outras ferramentas</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {relatedProducts.map((related) => (
+          <a href={`/produtos/${related.id}`} class="card-premium flex flex-col h-full group text-center">
+            <div class="relative overflow-hidden rounded-2xl mb-6">
+              <div class="aspect-[16/10] bg-gradient-to-br from-brand-rose/20 via-brand-champagne/20 to-brand-rose/10 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+                <svg class="w-16 h-16 text-brand-rose/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+              </div>
+              {related.badge && (
+                <span class="absolute top-3 right-3 badge">{related.badge}</span>
+              )}
+            </div>
+            <h3 class="heading-sm text-brand-graphite mb-3">{related.name}</h3>
+            <p class="text-sm text-muted flex-1">{related.shortDescription}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section section-padding">
+    <div class="container-premium">
+      <div class="cta-card rounded-3xl p-8 sm:p-12 text-center">
+        <h2 class="heading-md text-white mb-4">Precisa de ajuda?</h2>
+        <p class="text-body text-white/80 max-w-xl mx-auto mb-8">
+          Fale com a gente para tirar suas dúvidas sobre este produto.
+        </p>
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="btn-primary bg-white text-brand-champagne hover:bg-white/90">
+          Fale Conosco
+          <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container-premium pb-12">
+    <a href="/produtos" class="btn-ghost">
+      <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Voltar para Produtos
+    </a>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero-section {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--white) 100%);
+  }
+
+  .product-detail-section {
+    background: var(--white);
+  }
+
+  .related-section {
+    background: var(--bg-primary);
+  }
+
+  .cta-section {
+    background: var(--white);
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--rose) 0%, var(--champagne) 100%);
+  }
+</style>

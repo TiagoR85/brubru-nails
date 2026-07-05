@@ -1,0 +1,88 @@
+---
+const testimonials = [
+  {
+    quote: 'Depois de participar do programa, minha agenda triplicou em apenas 3 meses. Hoje atendo com fila de espera e faturei mais que o dobro do ano anterior.',
+    name: 'Ana Carolina Silva',
+    role: 'Manicure e Pedicure',
+    initials: 'AC',
+  },
+  {
+    quote: 'A Brubru me ensinou a cobrar pelo meu trabalho. Antes eu achava que não tinha valor, hoje sou referência na minha região e tenho equipe.',
+    name: 'Mariana Ferreira',
+    role: 'Nail Designer',
+    initials: 'MF',
+  },
+  {
+    quote: 'Organizar minha agenda e meus processos mudou minha vida. Não perco mais clientes e consigo ter uma rotina equilibrada com a família.',
+    name: 'Juliana Costa',
+    role: 'Proprietária de Estúdio',
+    initials: 'JC',
+  },
+];
+---
+
+<section class="testimonials-section section-padding">
+  <div class="container-premium">
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="heading-lg text-brand-graphite mb-4">
+        O que dizem <span class="text-gradient">sobre nós</span>
+      </h2>
+      <p class="text-body text-muted max-w-2xl mx-auto">
+        Depoimentos reais de quem já transformou sua carreira
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {testimonials.map((testimonial) => (
+        <div class="testimonial-card card-premium flex flex-col">
+          <svg class="w-10 h-10 text-brand-rose/30 mb-4 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C8.563 6.068 7 8.789 7 11h4v10H0z" />
+          </svg>
+
+          <p class="text-body text-brand-graphite/80 leading-relaxed mb-6 flex-1">
+            {testimonial.quote}
+          </p>
+
+          <div class="flex items-center gap-4 pt-4 border-t border-brand-gray-light">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-rose to-brand-champagne flex items-center justify-center text-white font-heading font-semibold text-sm shrink-0">
+              {testimonial.initials}
+            </div>
+            <div>
+              <p class="font-heading font-semibold text-brand-graphite text-sm">
+                {testimonial.name}
+              </p>
+              <p class="text-xs text-muted">
+                {testimonial.role}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center text-muted text-sm mt-10 lg:mt-12">
+      Mais depoimentos em breve
+    </p>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    background: linear-gradient(180deg, var(--white) 0%, var(--bg-primary) 50%, var(--white) 100%);
+  }
+
+  .testimonial-card {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .testimonial-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .testimonial-card:nth-child(1) { transition-delay: 0ms; }
+  .testimonial-card:nth-child(2) { transition-delay: 100ms; }
+  .testimonial-card:nth-child(3) { transition-delay: 200ms; }
+</style>

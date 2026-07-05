@@ -1,0 +1,77 @@
+---
+---
+
+<section class="newsletter-section section-padding">
+  <div class="container-premium">
+    <div class="newsletter-card mx-auto max-w-2xl text-center">
+      <div class="mb-8">
+        <h2 class="heading-lg text-brand-graphite mb-4">
+          Fique por <span class="text-gradient">dentro</span>
+        </h2>
+        <p class="text-body text-muted">
+          Receba dicas exclusivas diretamente no seu email
+        </p>
+      </div>
+
+      <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4">
+        <input
+          type="email"
+          name="email"
+          placeholder="Seu melhor email"
+          required
+          class="input-field flex-1"
+        />
+        <button type="submit" class="btn-primary whitespace-nowrap">
+          Inscrever-se
+          <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </form>
+
+      <div id="newsletter-success" class="hidden mt-6">
+        <div class="inline-flex items-center gap-3 px-6 py-4 bg-brand-rose/10 rounded-2xl">
+          <svg class="w-6 h-6 text-brand-rose" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span class="text-brand-graphite font-medium">
+            Obrigada! Você receberá nossas novidades em breve.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  const successMessage = document.getElementById('newsletter-success');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.classList.add('hidden');
+    successMessage?.classList.remove('hidden');
+  });
+</script>
+
+<style>
+  .newsletter-section {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--gray-light) 50%, var(--bg-primary) 100%);
+  }
+
+  .newsletter-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 2rem;
+    padding: 3rem 2rem;
+    border: 1px solid rgba(216, 168, 184, 0.15);
+    box-shadow: 0 4px 40px -8px rgba(216, 168, 184, 0.15);
+  }
+
+  @media (min-width: 640px) {
+    .newsletter-card {
+      padding: 4rem 3rem;
+    }
+  }
+</style>

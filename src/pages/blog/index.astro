@@ -1,0 +1,260 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const categories = [
+  { id: 'all', label: 'Todos' },
+  { id: 'dicas', label: 'Dicas' },
+  { id: 'organização', label: 'Organização' },
+  { id: 'negócios', label: 'Negócios' },
+  { id: 'inspiração', label: 'Inspiração' },
+];
+
+const blogPosts = [
+  {
+    slug: 'como-organizar-agenda-nail-designer',
+    title: 'Como Organizar sua Agenda como Nail Designer',
+    description: 'Descubra estratégias práticas para manter sua agenda organizada e nunca mais perder clientes por falta de planejamento.',
+    category: 'organização',
+    date: '2026-07-01',
+    readTime: '5 min',
+    gradient: 'from-brand-rose/30 via-brand-champagne/20 to-brand-rose/10',
+  },
+  {
+    slug: '7-dicas-para-aumentar-rentabilidade',
+    title: '7 Dicas para Aumentar a Rentabilidade do seu Salão',
+    description: 'Estratégias comprovadas para aumentar seus lucros sem precisar trabalhar mais horas por dia.',
+    category: 'negócios',
+    date: '2026-06-28',
+    readTime: '7 min',
+    gradient: 'from-brand-champagne/30 via-brand-rose/20 to-brand-champagne/10',
+  },
+  {
+    slug: 'tendencias-unhas-2026',
+    title: 'Tendências de Unhas para 2026: O que Vai Bombar',
+    description: 'As cores, técnicas e estilos que vão dominar o mercado de nail design no próximo ano.',
+    category: 'inspiração',
+    date: '2026-06-25',
+    readTime: '4 min',
+    gradient: 'from-brand-rose/20 via-brand-champagne/30 to-brand-rose/20',
+  },
+  {
+    slug: 'como-definir-precos-servicos',
+    title: 'Como Definir os Preços dos seus Serviços',
+    description: 'Um guia completo para calcular seus custos e definir preços justos que valorizam seu trabalho.',
+    category: 'dicas',
+    date: '2026-06-22',
+    readTime: '6 min',
+    gradient: 'from-brand-champagne/20 via-brand-rose/30 to-brand-champagne/20',
+  },
+  {
+    slug: 'rotina-produtiva-nail-designer',
+    title: 'Rotina Produtiva: Dia Tipico de uma Nail Designer',
+    description: 'Conheça a rotina que Bruna usa para otimizar seu tempo e atender mais clientes com qualidade.',
+    category: 'organização',
+    date: '2026-06-18',
+    readTime: '5 min',
+    gradient: 'from-brand-rose/25 via-brand-champagne/25 to-brand-rose/15',
+  },
+  {
+    slug: 'inspiracao-designs-criativos',
+    title: '10 Designs Criativos para se Inspirar',
+    description: 'Uma coleção de ideias criativas para surpreender suas clientes e se destacar no Instagram.',
+    category: 'inspiração',
+    date: '2026-06-15',
+    readTime: '3 min',
+    gradient: 'from-brand-champagne/25 via-brand-rose/25 to-brand-champagne/15',
+  },
+];
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  });
+}
+
+function getCategoryColor(category: string): string {
+  const colors: Record<string, string> = {
+    'dicas': 'bg-brand-champagne/15 text-brand-champagne',
+    'organização': 'bg-brand-rose/15 text-brand-rose',
+    'negócios': 'bg-brand-graphite/10 text-brand-graphite',
+    'inspiração': 'bg-brand-champagne/20 text-brand-champagne',
+  };
+  return colors[category] || 'bg-brand-rose/10 text-brand-rose';
+}
+---
+
+<BaseLayout title="Blog" description="Dicas, insights e histórias para Nail Designers. Aprenda com mais de 20 anos de experiência no mercado das unhas.">
+  <section class="relative pt-32 pb-16 sm:pt-40 sm:pb-20 overflow-hidden bg-brand-bg">
+    <div class="absolute top-20 left-10 w-3 h-3 rounded-full bg-brand-rose/40"></div>
+    <div class="absolute top-40 right-20 w-4 h-4 rounded-full bg-brand-champagne/30"></div>
+    <div class="absolute bottom-20 left-1/4 w-2 h-2 rounded-full bg-brand-rose/30"></div>
+
+    <div class="container-premium text-center">
+      <span class="badge mb-6 inline-flex">Blog</span>
+      <h1 class="heading-xl text-brand-graphite mb-6">
+        Blog <span class="text-gradient">Brubru Nails</span>
+      </h1>
+      <p class="text-body text-muted max-w-2xl mx-auto mb-12">
+        Dicas, insights e histórias para Nail Designers
+      </p>
+
+      <div class="max-w-xl mx-auto relative">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Buscar artigos..."
+          class="input-field pl-12"
+        />
+        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-graphite/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-brand-bg">
+    <div class="container-premium">
+      <div class="flex flex-wrap justify-center gap-3 mb-12" id="category-filters">
+        {categories.map((cat) => (
+          <button
+            data-category={cat.id}
+            class={`filter-btn px-5 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
+              cat.id === 'all'
+                ? 'bg-brand-champagne text-white shadow-soft'
+                : 'bg-white text-brand-graphite/70 hover:text-brand-graphite hover:bg-brand-gray-light/50 border border-brand-gray-light'
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="posts-grid">
+        {blogPosts.map((post) => (
+          <article
+            class="blog-card card-premium flex flex-col h-full group"
+            data-category={post.category}
+            data-title={post.title.toLowerCase()}
+            data-description={post.description.toLowerCase()}
+          >
+            <div class="relative overflow-hidden rounded-2xl mb-5">
+              <div class={`aspect-[16/10] bg-gradient-to-br ${post.gradient} flex items-center justify-center transition-transform duration-500 group-hover:scale-105`}>
+                <svg class="w-12 h-12 text-brand-rose/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                </svg>
+              </div>
+              <span class={`absolute top-3 left-3 px-3 py-1 text-xs font-medium rounded-full ${getCategoryColor(post.category)}`}>
+                {post.category.charAt(0).toUpperCase() + post.category.slice(1)}
+              </span>
+            </div>
+
+            <div class="flex flex-col flex-1">
+              <h2 class="heading-sm text-brand-graphite mb-3 group-hover:text-brand-champagne transition-colors duration-300">
+                {post.title}
+              </h2>
+              <p class="text-body text-muted mb-4 flex-1">
+                {post.description}
+              </p>
+
+              <div class="flex items-center justify-between pt-4 border-t border-brand-gray-light/50">
+                <time class="text-sm text-brand-graphite/50" datetime={post.date}>
+                  {formatDate(post.date)}
+                </time>
+                <span class="text-sm text-brand-champagne font-medium flex items-center gap-1.5">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {post.readTime}
+                </span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="text-center mt-12 hidden" id="no-results">
+        <svg class="w-16 h-16 mx-auto text-brand-graphite/20 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <p class="text-body text-muted">Nenhum artigo encontrado</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const blogCards = document.querySelectorAll<HTMLElement>('.blog-card');
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const noResults = document.getElementById('no-results');
+  let activeCategory = 'all';
+
+  function filterPosts() {
+    const searchTerm = searchInput?.value.toLowerCase().trim() || '';
+    let visibleCount = 0;
+
+    blogCards.forEach((card) => {
+      const cardCategory = card.dataset.category;
+      const cardTitle = card.dataset.title || '';
+      const cardDescription = card.dataset.description || '';
+
+      const matchesCategory = activeCategory === 'all' || cardCategory === activeCategory;
+      const matchesSearch = !searchTerm || cardTitle.includes(searchTerm) || cardDescription.includes(searchTerm);
+
+      if (matchesCategory && matchesSearch) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (noResults) {
+      noResults.classList.toggle('hidden', visibleCount > 0);
+    }
+  }
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => {
+        b.classList.remove('bg-brand-champagne', 'text-white', 'shadow-soft');
+        b.classList.add('bg-white', 'text-brand-graphite/70', 'border', 'border-brand-gray-light');
+      });
+
+      btn.classList.remove('bg-white', 'text-brand-graphite/70', 'border', 'border-brand-gray-light');
+      btn.classList.add('bg-brand-champagne', 'text-white', 'shadow-soft');
+
+      activeCategory = btn.dataset.category || 'all';
+      filterPosts();
+    });
+  });
+
+  searchInput?.addEventListener('input', filterPosts);
+</script>
+
+<style>
+  .blog-card {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .blog-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .blog-card:nth-child(1) { transition-delay: 0ms; }
+  .blog-card:nth-child(2) { transition-delay: 100ms; }
+  .blog-card:nth-child(3) { transition-delay: 200ms; }
+  .blog-card:nth-child(4) { transition-delay: 300ms; }
+  .blog-card:nth-child(5) { transition-delay: 400ms; }
+  .blog-card:nth-child(6) { transition-delay: 500ms; }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+  }
+</style>

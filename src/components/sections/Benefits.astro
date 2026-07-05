@@ -1,0 +1,92 @@
+---
+const benefits = [
+  {
+    title: 'Mais Clientes',
+    description: 'Aprenda a atrair e reter mais clientes',
+    icon: 'users',
+  },
+  {
+    title: 'Mais Organização',
+    description: 'Organize sua agenda e seus processos',
+    icon: 'calendar',
+  },
+  {
+    title: 'Mais Lucro',
+    description: 'Saiba quanto cobrar e como aumentar seu faturamento',
+    icon: 'trending-up',
+  },
+  {
+    title: 'Mais Confiança',
+    description: 'Transmita profissionalismo em cada atendimento',
+    icon: 'shield',
+  },
+  {
+    title: 'Mais Produtividade',
+    description: 'Otimize seu tempo e ganhe eficiência',
+    icon: 'clock',
+  },
+  {
+    title: 'Mais Crescimento',
+    description: 'Evolua constantemente como profissional',
+    icon: 'rocket',
+  },
+];
+---
+
+<section class="benefits-section section-padding">
+  <div class="container-premium">
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="heading-lg text-brand-graphite mb-4">
+        Transformação, <span class="text-gradient">não produto</span>
+      </h2>
+      <p class="text-body text-muted max-w-2xl mx-auto">
+        O que você ganha ao crescer com a Brubru Nails
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      {benefits.map((benefit) => (
+        <div class="benefit-item card-premium group">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-rose/10 flex items-center justify-center mb-4 sm:mb-5 group-hover:bg-brand-champagne/20 transition-colors duration-300">
+            {benefit.icon === 'users' && (
+              <svg class="w-6 h-6 sm:w-7 sm:h-7 text-brand-rose group-hover:text-brand-champagne transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            )}
+            {benefit.icon === 'calendar' && (
+              <svg class="w-6 h-6 sm:w-7 sm:h-7 text-brand-rose group-hover:text-brand-champagne transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            )}
+            {benefit.icon === 'trending-up' && (
+              <svg class="w-6 h-6 sm:w-7 sm:h-7 text-brand-rose group-hover:text-brand-champagne transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            )}
+            {benefit.icon === 'shield' && (
+              <svg class="w-6 h-6 sm:w-7 sm:h-7 text-brand-rose group-hover:text-brand-champagne transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            )}
+            {benefit.icon === 'clock' && (
+              <svg class="w-6 h-6 sm:w-7 sm:h-7 text-brand-rose group-hover:text-brand-champagne transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            )}
+            {benefit.icon === 'rocket' && (
+              <svg class="w-6 h-6 sm:w-7 sm:h-7 text-brand-rose group-hover:text-brand-champagne transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+              </svg>
+            )}
+          </div>
+          <h3 class="heading-sm text-brand-graphite mb-2">
+            {benefit.title}
+          </h3>
+          <p class="text-sm sm:text-base text-muted leading-relaxed">
+            {benefit.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

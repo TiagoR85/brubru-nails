@@ -1,0 +1,130 @@
+---
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: string;
+}
+
+const {
+  title,
+  description = 'Ferramentas digitais criadas por quem vive o mercado das unhas há mais de 20 anos. Transforme seu talento em um negócio de sucesso.',
+  image = '/images/og-default.jpg',
+  type = 'website',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{title} | Brubru Nails</title>
+
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={`${title} | Brubru Nails`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Brubru Nails" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Brubru Nails`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+
+    <meta name="theme-color" content="#FAF8F6" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script is:inline>
+      (function() {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (saved === 'dark' || (!saved && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Brubru Nails',
+      url: 'https://brubrunails.com.br',
+      logo: 'https://brubrunails.com.br/favicon.svg',
+      description: 'Transformando experiência em crescimento para Nail Designers',
+      founder: {
+        '@type': 'Person',
+        name: 'Bruna',
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        availableLanguage: 'Portuguese',
+      },
+      sameAs: [
+        'https://instagram.com/brubrunails',
+      ],
+    })} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Brubru Nails',
+      url: 'https://brubrunails.com.br',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://brubrunails.com.br/blog?q={search_term_string}',
+        'query-input': 'required name=search_term_string',
+      },
+    })} />
+  </head>
+  <body class="min-h-screen bg-brand-bg text-brand-graphite antialiased">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-brand-champagne focus:text-white focus:rounded-xl">
+      Pular para o conteúdo principal
+    </a>
+
+    <Navbar />
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script>
+      import { initAnimations, cleanupAnimations } from '../lib/gsap';
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initAnimations();
+      });
+
+      document.addEventListener('astro:before-swap', () => {
+        cleanupAnimations();
+      });
+
+      document.addEventListener('astro:page-load', () => {
+        initAnimations();
+      });
+    </script>
+  </body>
+</html>

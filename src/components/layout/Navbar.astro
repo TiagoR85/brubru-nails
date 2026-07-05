@@ -1,0 +1,179 @@
+---
+import { navItems, siteConfig } from '../../lib/utils';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent"
+  role="banner"
+>
+  <div class="container-premium">
+    <nav class="flex items-center justify-between h-20" role="navigation" aria-label="Navegação principal">
+      <a
+        href="/"
+        class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-champagne rounded-xl p-1 -m-1"
+        aria-label="Brubru Nails - Página inicial"
+      >
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-rose to-brand-champagne flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+          <span class="text-white font-heading font-bold text-lg" aria-hidden="true">B</span>
+        </div>
+        <span class="font-heading font-semibold text-xl text-brand-graphite group-hover:text-brand-champagne transition-colors duration-300">
+          {siteConfig.name}
+        </span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-1" role="menubar">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            role="menuitem"
+            class={`relative px-4 py-2 font-body text-sm font-medium rounded-xl transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-champagne ${
+              currentPath === item.href
+                ? 'text-brand-champagne bg-brand-champagne/10'
+                : 'text-brand-graphite/70 hover:text-brand-graphite hover:bg-brand-gray-light/50'
+            }`}
+            aria-current={currentPath === item.href ? 'page' : undefined}
+          >
+            {item.label}
+            {currentPath === item.href && (
+              <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-brand-champagne rounded-full" aria-hidden="true" />
+            )}
+          </a>
+        ))}
+      </div>
+
+      <a
+        href="/produtos"
+        class="hidden md:inline-flex btn-primary text-sm !px-6 !py-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-champagne focus-visible:ring-offset-2"
+      >
+        Conhecer Produtos
+      </a>
+
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="md:hidden relative flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-champagne rounded-xl"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="w-6 h-0.5 bg-brand-graphite rounded-full transition-all duration-300 origin-center" id="bar1"></span>
+        <span class="w-6 h-0.5 bg-brand-graphite rounded-full transition-all duration-300" id="bar2"></span>
+        <span class="w-4 h-0.5 bg-brand-graphite rounded-full transition-all duration-300 ml-auto origin-center" id="bar3"></span>
+      </button>
+    </nav>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="md:hidden fixed inset-0 top-20 bg-brand-bg/98 backdrop-blur-2xl -translate-x-full transition-transform duration-500 ease-out"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menu de navegação"
+  >
+    <div class="container-premium py-8 flex flex-col gap-2">
+      {navItems.map((item, index) => (
+        <a
+          href={item.href}
+          class={`font-heading text-2xl font-medium transition-all duration-300 py-3 px-4 rounded-xl ${
+            currentPath === item.href
+              ? 'text-brand-champagne bg-brand-champagne/10'
+              : 'text-brand-graphite hover:bg-brand-gray-light/50'
+          }`}
+          style={`animation: slideIn 0.4s ease-out ${index * 80}ms both`}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="/produtos"
+        class="btn-primary mt-6 text-center"
+        style={`animation: slideIn 0.4s ease-out ${navItems.length * 80}ms both`}
+      >
+        Conhecer Produtos
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const bars = [
+    document.getElementById('bar1'),
+    document.getElementById('bar2'),
+    document.getElementById('bar3'),
+  ];
+
+  let isMenuOpen = false;
+
+  function updateNavbar() {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('glass-effect', 'shadow-soft');
+      navbar?.classList.remove('bg-transparent');
+    } else {
+      navbar?.classList.remove('glass-effect', 'shadow-soft');
+      navbar?.classList.add('bg-transparent');
+    }
+  }
+
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+
+    if (isMenuOpen) {
+      mobileMenu?.classList.remove('-translate-x-full');
+      mobileMenu?.classList.add('translate-x-0');
+      bars[0]?.classList.add('rotate-45', 'translate-y-[7px]');
+      bars[1]?.classList.add('opacity-0', 'scale-0');
+      bars[2]?.classList.add('-rotate-45', '-translate-y-[7px]', 'w-6');
+      document.body.style.overflow = 'hidden';
+      mobileMenuBtn?.setAttribute('aria-label', 'Fechar menu');
+      mobileMenuBtn?.setAttribute('aria-expanded', 'true');
+    } else {
+      mobileMenu?.classList.add('-translate-x-full');
+      mobileMenu?.classList.remove('translate-x-0');
+      bars[0]?.classList.remove('rotate-45', 'translate-y-[7px]');
+      bars[1]?.classList.remove('opacity-0', 'scale-0');
+      bars[2]?.classList.remove('-rotate-45', '-translate-y-[7px]', 'w-6');
+      document.body.style.overflow = '';
+      mobileMenuBtn?.setAttribute('aria-label', 'Abrir menu');
+      mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  function handleKeydown(e: KeyboardEvent) {
+    if (e.key === 'Escape' && isMenuOpen) {
+      toggleMenu();
+      mobileMenuBtn?.focus();
+    }
+  }
+
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+  mobileMenuBtn?.addEventListener('click', toggleMenu);
+  document.addEventListener('keydown', handleKeydown);
+  updateNavbar();
+
+  document.addEventListener('astro:after-swap', () => {
+    const newNavbar = document.getElementById('navbar');
+    if (newNavbar) {
+      window.addEventListener('scroll', updateNavbar, { passive: true });
+      updateNavbar();
+    }
+  });
+</script>

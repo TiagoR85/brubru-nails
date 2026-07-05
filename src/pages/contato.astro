@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Contact from '../components/sections/Contact.astro';
+---
+
+<BaseLayout title="Contato">
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-brand-bg overflow-hidden">
+    <!-- Decorative dots -->
+    <div class="absolute top-20 left-10 w-3 h-3 rounded-full bg-brand-rose/40 animate-fade-in" style="animation-delay: 0.2s;"></div>
+    <div class="absolute top-32 right-20 w-4 h-4 rounded-full bg-brand-champagne/30 animate-fade-in" style="animation-delay: 0.4s;"></div>
+    <div class="absolute bottom-10 left-1/4 w-2 h-2 rounded-full bg-brand-rose/30 animate-fade-in" style="animation-delay: 0.6s;"></div>
+
+    <div class="container-premium text-center">
+      <span class="badge mb-6 inline-flex animate-slide-up" style="animation-delay: 0.1s;">
+        Estamos aqui para você
+      </span>
+
+      <h1 class="heading-xl text-brand-graphite mt-6 mb-6 animate-slide-up" style="animation-delay: 0.2s;">
+        Fale <span class="text-gradient">Conosco</span>
+      </h1>
+
+      <p class="text-body text-brand-graphite/70 max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.3s;">
+        Tire suas dúvidas, solicite informações ou tire um orçamento. 
+        Nossa equipe está pronta para ajudar você a alcançar o sucesso no mercado das unhas.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <Contact />
+
+  <!-- Map & Additional Info -->
+  <section class="section-padding bg-white">
+    <div class="container-premium">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Map Placeholder -->
+        <div class="card-premium overflow-hidden p-0">
+          <div class="relative w-full aspect-video lg:aspect-[4/3] bg-gradient-to-br from-brand-gray-light to-brand-bg flex items-center justify-center">
+            <div class="text-center px-8">
+              <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-brand-rose/10 flex items-center justify-center">
+                <svg class="w-8 h-8 text-brand-rose" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 class="heading-sm text-brand-graphite mb-2">Nossa Localização</h3>
+              <p class="text-body text-muted">São Paulo, SP — Brasil</p>
+              <p class="text-sm text-brand-graphite/50 mt-2">Atendimento 100% online</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Contact Info -->
+        <div class="space-y-6">
+          <div class="card-premium">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-brand-champagne/10 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-brand-champagne" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading font-semibold text-brand-graphite mb-1">Horário de Atendimento</h3>
+                <p class="text-body text-muted">Segunda a Sexta: 9h às 18h</p>
+                <p class="text-body text-muted">Sábado: 9h às 14h</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-premium">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-brand-rose/10 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-brand-rose" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading font-semibold text-brand-graphite mb-1">Resposta Rápida</h3>
+                <p class="text-body text-muted">Respondemos em até 24 horas via WhatsApp ou email.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-premium">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-brand-champagne/10 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-brand-champagne" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading font-semibold text-brand-graphite mb-1">Suporte Dedicado</h3>
+                <p class="text-body text-muted">Acompanhamento personalizado para cada cliente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
