@@ -3,8 +3,8 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://tiagor85.github.io',
-  base: '/brubru-nails',
+  site: 'https://brubrunails.com.br',
+  base: '/',
   integrations: [
     tailwind(),
     sitemap(),
