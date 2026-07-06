@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brubrunails.com.br/sitemap-index.xml

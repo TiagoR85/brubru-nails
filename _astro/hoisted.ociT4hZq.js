@@ -1,0 +1,1 @@
+import"./hoisted.Dsm74COe.js";const e=document.getElementById("contact-form"),s=document.getElementById("form-success");e?.addEventListener("submit",t=>{t.preventDefault(),e.style.display="none",s?.classList.remove("hidden")});

@@ -1,0 +1,1 @@
+import"./hoisted.Dsm74COe.js";const e=document.getElementById("newsletter-form"),t=document.getElementById("newsletter-success");e?.addEventListener("submit",s=>{s.preventDefault(),e.classList.add("hidden"),t?.classList.remove("hidden")});
