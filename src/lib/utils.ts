@@ -6,10 +6,17 @@ export const siteConfig = {
   description: 'Ferramentas digitais criadas por quem vive o mercado das unhas há mais de 20 anos. Transforme seu talento em um negócio de sucesso.',
   url: 'https://brubrunails.com.br',
   author: 'Bruna',
+  cnpj: '60.510.248/0001-24',
+  address: {
+    city: 'São José',
+    state: 'Santa Catarina',
+    full: 'São José - Santa Catarina',
+  },
   social: {
     instagram: 'https://instagram.com/brubrunails',
-    whatsapp: 'https://wa.me/5511999999999',
-    email: 'contato@brubrunails.com.br',
+    whatsapp: 'https://wa.me/5548999910336',
+    email: 'brukabecker@gmail.com',
+    phone: '(48) 99991-0336',
   },
 };
 
@@ -112,8 +119,8 @@ export const timelineItems: TimelineItem[] = [
 
 export const footerLinks: FooterLink[] = [
   { label: 'Instagram', href: 'https://instagram.com/brubrunails', external: true },
-  { label: 'WhatsApp', href: 'https://wa.me/5511999999999', external: true },
-  { label: 'Email', href: 'mailto:contato@brubrunails.com.br' },
+  { label: 'WhatsApp', href: 'https://wa.me/5548999910336', external: true },
+  { label: 'Email', href: 'mailto:brukabecker@gmail.com' },
   { label: 'Política de Privacidade', href: '/privacidade' },
   { label: 'Termos de Uso', href: '/termos' },
 ];
