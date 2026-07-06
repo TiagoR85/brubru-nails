@@ -6,10 +6,14 @@ export default {
       colors: {
         brand: {
           bg: '#FAF8F6',
-          rose: '#D8A8B8',
-          champagne: '#C6A15D',
-          graphite: '#2D2D2D',
-          'gray-light': '#ECE7E2',
+          rose: '#630014',
+          'rose-light': '#dbaaa6',
+          'rose-lighter': '#ebc0ba',
+          champagne: '#8d182b',
+          'champagne-light': '#dbaaa6',
+          graphite: '#1f2533',
+          'gray-light': '#dbaaa6',
+          'gray-lighter': '#ebc0ba',
           white: '#FFFFFF',
         },
       },
@@ -24,7 +28,7 @@ export default {
       boxShadow: {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
         'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 30px -5px rgba(0, 0, 0, 0.06)',
-        'premium': '0 8px 40px -8px rgba(216, 168, 184, 0.3)',
+        'premium': '0 8px 40px -8px rgba(99, 0, 20, 0.3)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',
