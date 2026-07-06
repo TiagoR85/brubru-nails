@@ -40,19 +40,17 @@ import { siteConfig } from '../../lib/utils';
         </div>
       </div>
 
-      <!-- Right: Image / Gradient placeholder -->
+      <!-- Right: Image -->
       <div class="hero-image order-1 lg:order-2 animate-scale-in" style="animation-delay: 0.3s;">
         <div class="relative w-full aspect-[4/5] lg:aspect-square rounded-3xl overflow-hidden shadow-premium">
-          <div class="absolute inset-0 bg-gradient-to-br from-brand-rose via-brand-champagne to-brand-rose/60"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-graphite/20 to-transparent"></div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="text-center text-white/90 px-8">
-              <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                <span class="font-heading font-bold text-3xl">BN</span>
-              </div>
-              <p class="font-heading font-medium text-lg">Bruna — Brubru Nails</p>
-            </div>
-          </div>
+          <img
+            src="/images/hero/bruna-hero.jpeg"
+            alt="Bruna, fundadora da Brubru Nails, sorrindo em estúdio"
+            class="absolute inset-0 w-full h-full object-cover object-top"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-graphite/10 to-transparent pointer-events-none"></div>
         </div>
       </div>
     </div>
