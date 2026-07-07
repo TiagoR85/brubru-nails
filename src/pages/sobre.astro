@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { timelineItems } from '../lib/utils';
 ---
 
 <BaseLayout title="Sobre">
@@ -12,132 +11,43 @@ import { timelineItems } from '../lib/utils';
     <div class="container-premium relative z-10 text-center">
       <span class="badge mb-6 inline-flex animate-slide-up">Sobre Nós</span>
       <h1 class="heading-xl text-brand-graphite mb-6 animate-slide-up" style="animation-delay: 0.1s;">
-        A História da <span class="text-gradient">Brubru Nails</span>
+        De Brincadeira de Criança a uma Carreira de <span class="text-gradient">Sucesso</span>
       </h1>
-      <p class="text-body text-muted max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
-        Mais de duas décadas de paixão, dedicação e amor pelas unhas — transformados em ferramentas que ajudam Nail Designers a conquistar o sucesso que merecem.
-      </p>
     </div>
   </section>
 
-  {/* Timeline Section */}
-  <section id="jornada" class="section-padding bg-white">
+  {/* Story Section */}
+  <section class="section-padding bg-white">
     <div class="container-premium">
-      <div class="text-center mb-16 lg:mb-20">
-        <span class="badge mb-4 inline-block">Jornada</span>
-        <h2 class="heading-lg text-brand-graphite mb-4">Minha Jornada</h2>
-        <p class="text-body text-muted max-w-2xl mx-auto">
-          De apaixonada por unhas a referência nacional
-        </p>
-      </div>
+      <div class="max-w-3xl mx-auto">
+        <div class="prose-brand space-y-6 text-brand-graphite/80 leading-relaxed" style="text-align: justify; line-height: 1.8;">
+          <p>
+            Desde menina, o salão de beleza era o meu lugar favorito no mundo. Enquanto minha mãe cuidava de si, eu ficava fascinada observando o movimento, as cores e o cuidado das manicures. Não demorou para que aquilo virasse a minha brincadeira preferida. Minha primeira "vítima"? Meu pai! Com apenas 9 anos e muita insistência, convenci ele a ser meu primeiro modelo. Corajoso, né? Mas ali nascia um propósito.
+          </p>
 
-      <div class="relative max-w-4xl mx-auto">
-        <div class="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-brand-rose/20 via-brand-champagne/40 to-brand-rose/20"></div>
+          <p>
+            Sempre fui muito independente e, aos 13 anos, decidi que queria trabalhar. Meus pais, percebendo que a minha paixão pelas unhas era real, decidiram apoiar o meu talento. Foi assim que a Tia Inês — dona do salão que minha mãe frequentava — me abriu as portas. Em 2006, eu dividia meus dias entre a escola e o salão, aprendendo o ofício na prática. Em três meses, eu já atendia minhas próprias clientes. Lembro com carinho dessa época: em uma realidade onde o pé e a mão custavam pouco mais de R$ 10,00, eu já construía minha independência e absorvia tudo o que podia sobre o mundo da beleza. Foram 6 anos de muito aprendizado e base sólida.
+          </p>
 
-        <div class="space-y-12 md:space-y-16">
-          {timelineItems.map((item, index) => {
-            const isEven = index % 2 === 0;
-            return (
-              <div
-                class:list={[
-                  'timeline-item relative flex items-start gap-6 md:gap-0',
-                  isEven ? 'md:flex-row' : 'md:flex-row-reverse',
-                ]}
-              >
-                <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-brand-rose border-4 border-white shadow-medium z-10 mt-1.5"></div>
+          <p>
+            Em 2012, o desejo de crescer me levou para Florianópolis. Comecei a trabalhar em uma grande rede de shopping e, ao mesmo tempo, fui aprovada na Universidade Federal de Santa Catarina (UFSC) no curso de Letras Espanhol. Conciliar a rotina intensa do shopping com os estudos acadêmicos foi uma verdadeira maratona, mas eu venci.
+          </p>
 
-                <div class:list={[
-                  'ml-12 md:ml-0 md:w-[calc(50%-2.5rem)]',
-                  isEven ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left',
-                ]}>
-                  <div class="card-premium">
-                    <span class="inline-block px-3 py-1 mb-3 text-xs font-heading font-semibold tracking-wide uppercase bg-brand-champagne/10 text-brand-champagne rounded-full">
-                      {item.year}
-                    </span>
-                    <h3 class="heading-sm text-brand-graphite mb-2">{item.title}</h3>
-                    <p class="text-body text-muted">{item.description}</p>
-                  </div>
-                </div>
+          <p>
+            Muitos me perguntam por que não segui na área da educação. A resposta é simples: o meu coração sempre pertenceu ao "mundo nail". Eu já tinha anos de estrada, o mercado estava em plena ascensão e eu sabia que o meu diferencial era a entrega e a paixão pelo que faço. Após me formar, mergulhei de cabeça na especialização: investi nos melhores cursos de gel, alongamentos e esmaltação avançada.
+          </p>
 
-                <div class="hidden md:block md:w-[calc(50%-2.5rem)]"></div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  </section>
+          <p>
+            Sabe aquele empurrãozinho que a vida dá quando precisamos mudar? O meu veio com a pandemia. O mercado domiciliar estava crescendo e, quando os profissionais autônomos foram liberados para trabalhar, decidi que era hora de deixar o shopping após quase uma década de dedicação. O atendimento personalizado em domicílio decolou.
+          </p>
 
-  {/* Mission & Values Section */}
-  <section class="section-padding bg-brand-bg">
-    <div class="container-premium">
-      <div class="text-center mb-16 lg:mb-20">
-        <span class="badge mb-4 inline-block">Missão e Valores</span>
-        <h2 class="heading-lg text-brand-graphite mb-4">O que nos move</h2>
-        <p class="text-body text-muted max-w-2xl mx-auto">
-          Acreditamos que toda Nail Designer merece acesso a ferramentas que transformem seu talento em um negócio de sucesso.
-        </p>
-      </div>
+          <p>
+            Em 2022, vivi o meu maior sonho: a maternidade. Me dediquei integralmente à minha filha nos seus primeiros meses de vida. Quando ela completou 1 ano e meio e ingressou na escola, soube que era hora de voltar. Eu sabia que seria um recomeço do zero, mas o amor pelo trabalho e a fidelidade das minhas clientes falaram mais alto: em menos de 3 meses, minha agenda estava lotada novamente e com lista de espera.
+          </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        <div class="card-premium text-center">
-          <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-brand-rose/10 flex items-center justify-center">
-            <svg class="w-8 h-8 text-brand-rose" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-            </svg>
-          </div>
-          <h3 class="heading-sm text-brand-graphite mb-3">Paixão</h3>
-          <p class="text-body text-muted">Cada produto nasce do amor genuíno pelo mercado das unhas e pela transformação que ele proporciona na vida das profissionais.</p>
-        </div>
-
-        <div class="card-premium text-center">
-          <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-brand-champagne/10 flex items-center justify-center">
-            <svg class="w-8 h-8 text-brand-champagne" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-            </svg>
-          </div>
-          <h3 class="heading-sm text-brand-graphite mb-3">Inovação</h3>
-          <p class="text-body text-muted">Combinamos décadas de experiência com ferramentas modernas para oferecer soluções que realmente funcionam no dia a dia.</p>
-        </div>
-
-        <div class="card-premium text-center">
-          <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-brand-rose/10 flex items-center justify-center">
-            <svg class="w-8 h-8 text-brand-rose" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </div>
-          <h3 class="heading-sm text-brand-graphite mb-3">Empoderamento</h3>
-          <p class="text-body text-muted">Nossa missão é ver cada Nail Designer alcançar um patamar que ela nem imaginava possível — e nos orgulhamos de fazer isso acontecer.</p>
-        </div>
-
-        <div class="card-premium text-center">
-          <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-brand-champagne/10 flex items-center justify-center">
-            <svg class="w-8 h-8 text-brand-champagne" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-          </div>
-          <h3 class="heading-sm text-brand-graphite mb-3">Confiança</h3>
-          <p class="text-body text-muted">Mais de 20 anos construindo credibilidade. Cada conteúdo que criamos é respaldado por experiência real no mercado.</p>
-        </div>
-
-        <div class="card-premium text-center">
-          <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-brand-rose/10 flex items-center justify-center">
-            <svg class="w-8 h-8 text-brand-rose" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <h3 class="heading-sm text-brand-graphite mb-3">Resultados</h3>
-          <p class="text-body text-muted">Não vendemos promessas — entregamos ferramentas comprovadas que geram resultados reais para quem se compromete.</p>
-        </div>
-
-        <div class="card-premium text-center">
-          <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-brand-champagne/10 flex items-center justify-center">
-            <svg class="w-8 h-8 text-brand-champagne" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-          </div>
-          <h3 class="heading-sm text-brand-graphite mb-3">Ensino</h3>
-          <p class="text-body text-muted">Acreditamos que compartilhar conhecimento é a forma mais poderosa de multiplicar o sucesso de toda a comunidade.</p>
+          <p>
+            Hoje, cada produto que desenvolvo carrega esses 20 anos de história, superação e conhecimento prático de quem vive o dia a dia de um atendimento de excelência. Criar soluções para o mercado nail não é apenas o meu negócio; é a história da minha vida.
+          </p>
         </div>
       </div>
     </div>
