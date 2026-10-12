@@ -19,6 +19,8 @@
 
 This repository contains the official website built with **Astro** and **Tailwind CSS**.
 
+This is also a **study project** from my public portfolio: I learn by building, developing with **AI-assisted development tools** (agent pair programming) while keeping professional habits — Git versioning, automated CI build and deploy to GitHub Pages, and documented decisions.
+
 ## Features
 
 - Responsive landing page with GSAP animations
